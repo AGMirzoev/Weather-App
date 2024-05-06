@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Погода</title>
+		<link rel="stylesheet" href="main.css" />
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+		/>
+	</head>
+	<body>
+		<section class="weather">
+			<div class="container">
+				<div class="weather__wrapper">
+					<div class="weather__search">
+						<form class="form">
+							<input class="form__search" type="search" placeholder="Поиск" />
+							<button class="form__btn" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</form>
+					</div>
+					<div class="weather__information">
+						<div class="weather__information-city">
+							<div class="weather__information-add">
+								<h1 class="weather__heading">Aktobe</h1>
+								<button class="weather__information-btn" type="submit">
+									<i class="fa fa-heart-o fa-lg"></i>
+								</button>
+							</div>
+							<p class="weather__information-weather">14</p>
+							<img
+								class="weather__information-svg"
+								src="img/icons-rain.svg"
+								alt="icon-rain"
+							/>
+							<ul class="weather__information-list">
+								<li class="weather__information-item">
+									Feels like: <span>10</span>
+								</li>
+								<li class="weather__information-item">Sunrise: 03:21</li>
+								<li class="weather__information-item">Sunset: 18:54</li>
+							</ul>
+						</div>
+						<div class="weather__information-hourly">
+							<p class="hour">12:00</p>
+							<p class="temperature">Temperature: <span>13</span></p>
+							<p class="feels">Feels like: <span>11</span></p>
+							<img
+								class="weather__hourly-svg"
+								src="img/icons-rain.svg"
+								alt="icon-rain"
+							/>
+						</div>
+						<div class="weather__information-hourly">
+							<p class="hour">15:00</p>
+							<p class="temperature">Temperature: <span>11</span></p>
+							<p class="feels">Feels like: <span>10</span></p>
+							<img
+								class="weather__hourly-svg"
+								src="img/icons-rain.svg"
+								alt="icon-rain"
+							/>
+						</div>
+						<div class="weather__information-hourly">
+							<p class="hour">18:00</p>
+							<p class="temperature">Temperature: <span>11</span></p>
+							<p class="feels">Feels like: <span>10</span></p>
+							<img
+								class="weather__hourly-svg"
+								src="img/icons-rain.svg"
+								alt="icon-rain"
+							/>
+						</div>
+					</div>
+					<div class="weather__favorites">
+						<h2 class="weather__title">Added Locations:</h2>
+						<ul class="weather__item">
+							<li class="weather__list">Amur</li>
+							<li class="weather__list">Samara</li>
+							<li class="weather__list">Bali</li>
+							<li class="weather__list">Dane</li>
+							<li class="weather__list">Kilo</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
