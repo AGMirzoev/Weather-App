@@ -190,6 +190,10 @@ body {
 	height: 22px;
 }
 
+.fa-heart-like {
+	color: red;
+}
+
 .weather__information-weather {
 	margin-bottom: 16px;
 	font-size: 70px;
