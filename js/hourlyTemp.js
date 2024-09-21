@@ -4,7 +4,7 @@ const lat = 55.751244
 const lon = 37.618423
 
 export function fetchHourlyWeather() {
-	const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=daily,minutely,current,alerts&units=metric&appid=${apiKey}`
+	const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
 
 	fetch(url)
 		.then(response => {
@@ -14,7 +14,7 @@ export function fetchHourlyWeather() {
 			return response.json()
 		})
 		.then(data => {
-			console.log(data)
+			displayNextThreeHoursWeather(data.list) // передаем данные
 		})
 		.catch(error => {
 			console.error('Error fetching data:', error)
@@ -22,7 +22,7 @@ export function fetchHourlyWeather() {
 }
 
 function displayNextThreeHoursWeather(hourlyData) {
-	hourlyList.textContent = ''
+	hourlyList.textContent = '' // убедитесь, что hourlyList ссылается на существующий элемент
 
 	const nextThreeHours = hourlyData.slice(0, 3)
 
@@ -33,8 +33,8 @@ function displayNextThreeHoursWeather(hourlyData) {
 			hour: '2-digit',
 			minute: '2-digit',
 		})
-		const temp = Math.round(hourData.temp)
-		const feelsLike = Math.round(hourData.feels_like)
+		const temp = Math.round(hourData.main.temp) // доступ к данным температуры
+		const feelsLike = Math.round(hourData.main.feels_like) // доступ к данным "ощущается как"
 		const description = hourData.weather[0].description
 		const iconCode = hourData.weather[0].icon
 		const weatherIconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`
@@ -57,8 +57,8 @@ function createDomElements(time, temp, feelsLike, description, weatherIconUrl) {
 	weatherImg.classList = 'weather__hourly-icon'
 
 	hour.textContent = time
-	temperature.textContent = `Temperature: ${temp}`
-	feels.textContent = `Feels like: ${feelsLike}`
+	temperature.textContent = `Temperature: ${temp}°C`
+	feels.textContent = `Feels like: ${feelsLike}°C`
 	weatherImg.src = weatherIconUrl
 	weatherImg.alt = description
 
