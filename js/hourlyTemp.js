@@ -14,7 +14,7 @@ export function fetchHourlyWeather() {
 			return response.json()
 		})
 		.then(data => {
-			displayNextThreeHoursWeather(data.list) // передаем данные
+			displayNextThreeHoursWeather(data.list)
 		})
 		.catch(error => {
 			console.error('Error fetching data:', error)
@@ -22,7 +22,7 @@ export function fetchHourlyWeather() {
 }
 
 function displayNextThreeHoursWeather(hourlyData) {
-	hourlyList.textContent = '' // убедитесь, что hourlyList ссылается на существующий элемент
+	hourlyList.textContent = ''
 
 	const nextThreeHours = hourlyData.slice(0, 3)
 
@@ -33,8 +33,8 @@ function displayNextThreeHoursWeather(hourlyData) {
 			hour: '2-digit',
 			minute: '2-digit',
 		})
-		const temp = Math.round(hourData.main.temp) // доступ к данным температуры
-		const feelsLike = Math.round(hourData.main.feels_like) // доступ к данным "ощущается как"
+		const temp = Math.round(hourData.main.temp)
+		const feelsLike = Math.round(hourData.main.feels_like)
 		const description = hourData.weather[0].description
 		const iconCode = hourData.weather[0].icon
 		const weatherIconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`
