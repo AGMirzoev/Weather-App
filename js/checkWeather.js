@@ -38,7 +38,7 @@ export function checkWeather(cityName) {
 	}
 
 	showWeather()
-	fetchHourlyWeather()
+	fetchHourlyWeather(cityName)
 	formInput.value = ''
 }
 

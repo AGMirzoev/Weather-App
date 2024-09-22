@@ -1,10 +1,7 @@
 import { apiKey, hourlyList } from './constants.js'
 
-const lat = 55.751244
-const lon = 37.618423
-
-export function fetchHourlyWeather() {
-	const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+export function fetchHourlyWeather(cityName) {
+	const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${apiKey}`
 
 	fetch(url)
 		.then(response => {
@@ -57,8 +54,8 @@ function createDomElements(time, temp, feelsLike, description, weatherIconUrl) {
 	weatherImg.classList = 'weather__hourly-icon'
 
 	hour.textContent = time
-	temperature.textContent = `Temperature: ${temp}°C`
-	feels.textContent = `Feels like: ${feelsLike}°C`
+	temperature.textContent = `Temperature: ${temp}`
+	feels.textContent = `Feels like: ${feelsLike}`
 	weatherImg.src = weatherIconUrl
 	weatherImg.alt = description
 
